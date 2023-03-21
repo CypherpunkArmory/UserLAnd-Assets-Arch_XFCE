@@ -27,7 +27,7 @@ sleep 2
 export DISPLAY=:${VNC_DISPLAY}
 cd ~
 xterm -geometry 80x24+0+0 -e /bin/bash --login &
-LANG=C startxfce4 &
 x11vnc -xkb -noxrecord -noxfixes -noxdamage -display :${VNC_DISPLAY} -N -usepw -shared -noshm &
 VNC_PID=$!
 echo $VNC_PID > /home/$INITIAL_USERNAME/.vnc/localhost:${VNC_DISPLAY}.pid
+LANG=C startxfce4
