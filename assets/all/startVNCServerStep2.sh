@@ -26,10 +26,8 @@ Xvfb :${VNC_DISPLAY} -screen 0 ${DIMENSIONS}x16 &
 sleep 2
 export DISPLAY=:${VNC_DISPLAY}
 cd ~
-xrdb -load $HOME/.Xresources
-xsetroot -solid gray &
 xterm -geometry 80x24+0+0 -e /bin/bash --login &
-LANG=C twm &
+LANG=C startxfce4 &
 x11vnc -xkb -noxrecord -noxfixes -noxdamage -display :${VNC_DISPLAY} -N -usepw -shared -noshm &
 VNC_PID=$!
 echo $VNC_PID > /home/$INITIAL_USERNAME/.vnc/localhost:${VNC_DISPLAY}.pid
